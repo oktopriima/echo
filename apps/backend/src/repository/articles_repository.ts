@@ -21,7 +21,7 @@ export const create = async (data: {
 
   const article = await prisma.articles.findFirst({
     where: {
-      url: data.url
+      uri: data.uri
     }
   });
 
