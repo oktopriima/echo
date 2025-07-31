@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Topics {
+  id         Int     @id @default(autoincrement())
+  owner      String?
+  keyword    String?
+  categories String?
+  country    String?
+  language   String?
+  sorting    String?
+
+  @@map("topics")
+}
+
+model Articles {
+  id          Int       @id @default(autoincrement())
+  uri         String?
+  uuid        String?
+  date        String?
+  time        String?
+  dateTime    DateTime?
+  dateTimePub DateTime?
+  title       String?
+  body        String?
+  image       String?
+  source      Json?
+  metadata    Json?
+  apiSource   String?
+  url         String?
+
+  @@map("articles")
+}
