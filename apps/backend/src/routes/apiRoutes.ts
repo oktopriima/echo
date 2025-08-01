@@ -1,6 +1,10 @@
 import {FastifyInstance, FastifyPluginAsync, FastifyReply, FastifyRequest} from "fastify";
 import * as UserController from "../controllers/userController";
 import * as NewsController from "../controllers/newsController";
+import * as TopicController from "../controllers/topicController";
+import * as NewsFetchController from "../controllers/newsFetchController";
+import {validateBody} from "../plugins/validate";
+import {CreateTopicRequest} from "../dto/topicDto";
 
 const apiRoutes: FastifyPluginAsync = async (fastify: FastifyInstance): Promise<void> => {
   fastify.get("/ping", async (req: FastifyRequest, reply: FastifyReply): Promise<void> => {
@@ -29,5 +33,13 @@ const apiRoutes: FastifyPluginAsync = async (fastify: FastifyInstance): Promise<
     newsRoutes.get("/trending", NewsController.NewsTrendingController);
   }, {prefix: "/news"});
 
+  fastify.register(async (topicRoutes: FastifyInstance) => {
+    topicRoutes.post('', {preValidation: validateBody(CreateTopicRequest)}, TopicController.NewCreateTopic)
+  }, {prefix: "/topic"});
+
+  fastify.register(async (newsFetchRoutes: FastifyInstance) => {
+    newsFetchRoutes.post('/:id', NewsFetchController.SingleNewsFetchController);
+    newsFetchRoutes.post('', NewsFetchController.AllTopicsFetchController);
+  }, {prefix: "/news-fetch"});
 };
 export default apiRoutes;

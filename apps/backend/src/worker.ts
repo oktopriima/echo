@@ -1,6 +1,6 @@
 import cron from "node-cron";
 import logger from "./lib/logger";
-import {NewFetchService} from "./services/news/fetch";
+import {NewFetchService} from "./services/newsFetch/fetch";
 
 const startWorker = async (): Promise<void> => {
   cron.schedule("0 7 * * *", () => {
