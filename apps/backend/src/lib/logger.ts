@@ -1,10 +1,6 @@
 import {createLogger, format, Logger, transports} from "winston";
 import path from "path";
 import fs from "fs";
-import {fileURLToPath} from "url";
-
-const __filename: string = fileURLToPath(import.meta.url);
-const __dirname: string = path.dirname(__filename);
 
 const logDir: string = path.join(__dirname, "../../logs/app");
 if (!fs.existsSync(logDir)) {

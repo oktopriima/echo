@@ -1,5 +1,5 @@
-import {ServiceResponse} from "src/services/response";
-import {HttpStatus} from "src/utils/http_status";
+import {ServiceResponse} from "../services/response";
+import {HttpStatus} from "../utils/http_status";
 
 export class ServiceBase {
   success<T = any>(result: T, message: string = "true"): ServiceResponse<T> {

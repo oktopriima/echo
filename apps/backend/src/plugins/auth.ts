@@ -1,8 +1,8 @@
 import fp from "fastify-plugin";
 import auth0Verify from "fastify-auth0-verify";
-import {TOKEN_DOMAIN, TOKEN_AUDIENCE} from "src/config/app";
+import {TOKEN_DOMAIN, TOKEN_AUDIENCE} from "../config/app";
 import axios, {AxiosResponse} from "axios";
-import logger from "src/lib/logger";
+import logger from "../lib/logger";
 import {FastifyInstance} from "fastify";
 
 declare module "fastify" {

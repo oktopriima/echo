@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2021",
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "strict": true,
@@ -14,5 +14,5 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src/**/*"]
 }

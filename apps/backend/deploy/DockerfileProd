@@ -2,11 +2,11 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY ../../apps/backend/package*.json ./
+COPY package*.json ./
 RUN npm install
 
-COPY ../../apps/backend .
+COPY . .
 
 RUN npm run build
 
-ENTRYPOINT ["sh", "./entrypoint-prod.sh"]
+ENTRYPOINT ["sh", "./deploy/entrypoint-prod.sh"]

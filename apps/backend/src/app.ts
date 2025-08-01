@@ -1,6 +1,6 @@
 import Fastify, {FastifyError, FastifyInstance, FastifyReply, FastifyRequest} from "fastify";
 import fastifyCors from "@fastify/cors";
-import apiRoutes from "./routes/api.route";
+import apiRoutes from "./routes/apiRoutes";
 import authPlugin from "./plugins/auth";
 import logger from "./lib/logger";
 

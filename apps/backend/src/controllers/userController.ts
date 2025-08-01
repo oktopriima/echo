@@ -1,5 +1,5 @@
 import {FastifyRequest, FastifyReply} from "fastify";
-import logger from "src/lib/logger";
+import logger from "../lib/logger";
 
 export const UserGetProfileController = async (
   request: FastifyRequest,

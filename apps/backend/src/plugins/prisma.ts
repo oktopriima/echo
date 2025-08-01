@@ -4,9 +4,6 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import {WriteStream} from "node:fs";
 
-const __filename: string = fileURLToPath(import.meta.url);
-const __dirname: string = path.dirname(__filename);
-
 const logDir: string = path.join(__dirname, '../../logs/mysql');
 const logFilePath: string = path.join(logDir, 'prisma.log');
 

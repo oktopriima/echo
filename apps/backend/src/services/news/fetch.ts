@@ -1,7 +1,7 @@
 import {ServiceBase} from "../base";
 import {ServiceResponse} from "../response";
-import * as topicRepository from "src/repository/topics_repository";
-import * as articleRepository from "src/repository/articles_repository";
+import * as topicRepository from "../../repository/topics_repository";
+import * as articleRepository from "../../repository/articles_repository";
 import {getNews} from "../../plugins/newsapi";
 import { v4 as uuidv4 } from 'uuid';
 

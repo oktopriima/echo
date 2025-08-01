@@ -1,6 +1,6 @@
 import {FastifyInstance, FastifyPluginAsync, FastifyReply, FastifyRequest} from "fastify";
-import * as UserController from "src/controllers/user.controllers";
-import * as NewsController from "src/controllers/news.controller";
+import * as UserController from "../controllers/userController";
+import * as NewsController from "../controllers/newsController";
 
 const apiRoutes: FastifyPluginAsync = async (fastify: FastifyInstance): Promise<void> => {
   fastify.get("/ping", async (req: FastifyRequest, reply: FastifyReply): Promise<void> => {

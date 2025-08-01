@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: deploy/DockerfileProd
+    ports:
+      - "3001:3001"
+    environment:
+      APP_PORT: 3001
+      APP_SCHEME: http
+      APP_HOST: 0.0.0.0
+      TOKEN_AUDIENCE: https://api.charlie.app
+      TOKEN_DOMAIN: https://dev-yhfol7bv57at5lsp.au.auth0.com
+      NEWS_API_KEY: 17a95863-82ec-40e0-938f-54a355bd1f59
+      DATABASE_URL: file:./echo.db
+    volumes:
+      - backend_data:/app/data
+    command: sh ./deploy/entrypoint-prod.sh
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: deploy/DockerfileProd
+    ports:
+      - "8080:80"
+    environment:
+      - VITE_API_URL=http://backend:3001
+    depends_on:
+      - backend
+    command: sh ./entrypoint-prod.sh
+    restart: unless-stopped
+
+volumes:
+  backend_data:

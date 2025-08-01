@@ -1,10 +1,10 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import logger from "src/lib/logger";
-import { NewsListService } from "src/services/news/list";
+import logger from "../lib/logger";
+import { NewsListService } from "../services/news/list";
 import { NewsTrendingService } from "../services/news/trending";
 import { DEFAULT_PAGE, DEFAULT_SIZE } from "../config/pagination";
 import { plainToInstance } from "class-transformer";
-import { ListArticleResponse } from "src/dto/article.dto";
+import { ListArticleResponse } from "../dto/articleDto";
 
 export const NewsListController = async (
   request: FastifyRequest,

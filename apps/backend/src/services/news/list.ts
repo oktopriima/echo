@@ -1,7 +1,7 @@
 import {ServiceBase} from "../base";
 import {ServiceResponse} from "../response";
 import logger from "../../lib/logger";
-import * as articleRepository from "src/repository/articles_repository";
+import * as articleRepository from "../../repository/articles_repository";
 
 class NewsListService extends ServiceBase {
   call = async (query: string, page: number, size: number): Promise<ServiceResponse> => {
